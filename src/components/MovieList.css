@@ -1,0 +1,31 @@
+.movie-list-container {
+  padding: 20px;
+  margin: 2px;
+  width: 60%;
+}
+
+.movie-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  padding: 15px;
+  width: 34%;
+}
+
+.movie-card img {
+  max-width: 200px;
+  height: auto;
+  border-radius: 0px;
+  margin-bottom: 10px;
+}
+
+.movie-title {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 8px;
+}
+
+.movie-description {
+  font-size: 14px;
+  color: #666;
+}

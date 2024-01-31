@@ -1,0 +1,22 @@
+.movie-summary-container {
+  padding: 20px;
+  width: 30%;
+}
+
+.movie-summary-card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.movie-summary-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.movie-summary-description {
+  font-size: 16px;
+  color: #666;
+  margin-bottom: 20px;
+}
