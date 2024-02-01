@@ -1,12 +1,13 @@
 .movie-summary-container {
   padding: 20px;
-  width: 30%;
+  width: 42%;
 }
 
 .movie-summary-card {
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 20px;
+  width: 100%;
 }
 
 .movie-summary-title {
