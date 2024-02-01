@@ -141,7 +141,7 @@ const FormModal = ({ isOpen, onClose, selectedMovie }) => {
                       />
                     </div>
                     <button type="submit" className="btn btn-primary mt-3">
-                      Book Your Ticket
+                      Submit Info
                     </button>
                   </form>
                 </div>

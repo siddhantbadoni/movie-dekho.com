@@ -43,7 +43,7 @@ const MovieSummary = ({ selectedMovie }) => {
               />
             </div>
           ) : (
-            <h3 className="user-guide">
+            <h3 className="user-guide movie-card-container">
               Click on Movies for More Information 👈
             </h3>
           )}
