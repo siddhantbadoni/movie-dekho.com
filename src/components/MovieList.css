@@ -17,11 +17,19 @@
   height: auto;
   border-radius: 0px;
   margin-bottom: 10px;
+  cursor: pointer;
 }
 
 .movie-list {
-  border: 1px solid black;
+  height: 800px;
+  overflow-y: auto;
 }
+
+.movie-list-container {
+  scrollbar-width: thin;
+  scrollbar-color: transparent transparent;
+}
+
 .movie-title {
   font-size: 18px;
   font-weight: bold;
@@ -31,4 +39,11 @@
 .movie-rating {
   font-size: 4px;
   color: #666;
+}
+.movie-card-container {
+  transition: transform 0.2s ease-in-out;
+}
+
+.movie-card-container:hover {
+  transform: scale(1.05);
 }

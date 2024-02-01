@@ -4,10 +4,10 @@
 }
 
 .movie-summary-card {
-  border: 1px solid #ccc;
+  border: 1px solid black;
   border-radius: 8px;
   padding: 20px;
-  width: 100%;
+  width: 138%;
 }
 
 .movie-summary-title {
@@ -19,5 +19,10 @@
 .movie-summary-description {
   font-size: 16px;
   color: #666;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+
+.user-guide {
+  margin-top: 15rem;
+  margin-bottom: 15rem;
 }

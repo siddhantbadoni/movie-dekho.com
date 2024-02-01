@@ -1,36 +1,21 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./MovieList.css";
-const MovieList = () => {
-  const [movies, setMovies] = useState([]);
-  useEffect(() => {
-    // Fetch movies from API and update the state
-    const fetchMovies = async () => {
-      try {
-        const response = await fetch(
-          " https://api.tvmaze.com/search/shows?q=all"
-        );
 
-        if (!response.ok) {
-          throw new Error("Network response was not ok");
-        }
-
-        const data = await response.json();
-        console.log(data);
-        setMovies(data);
-      } catch (error) {
-        console.error("Error fetching data:", error.message);
-      }
-    };
-    fetchMovies();
-  }, []);
+const MovieList = ({ movies, onMovieClick }) => {
   return (
     <div className="container movie-list-container">
       <h2>Movie List</h2>
       <div className="row movie-list">
         {movies.map((movie) => (
-          <div key={movie.show && movie.show.id} className="col-md-4">
-            <div className="card movie-card">
+          <div
+            key={movie.show && movie.show.id}
+            className="col-md-4 movie-card-container"
+          >
+            <div
+              className="card movie-card"
+              onClick={() => onMovieClick(movie)}
+            >
               {movie.show && movie.show.image && movie.show.image.medium ? (
                 <img src={movie.show.image.medium} alt={movie.show.name} />
               ) : (
