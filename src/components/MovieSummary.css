@@ -1,15 +1,20 @@
 .movie-summary-container {
   padding: 20px;
-  width: 42%;
+  width: 90%;
+  box-sizing: border-box;
 }
 
 .movie-summary-card {
   border: 1px solid black;
   border-radius: 8px;
   padding: 20px;
-  width: 138%;
+  width: 100%;
+  box-sizing: border-box;
 }
 
+.summary-padding {
+  padding: 2rem;
+}
 .movie-summary-title {
   font-size: 24px;
   font-weight: bold;

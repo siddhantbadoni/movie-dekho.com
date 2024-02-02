@@ -9,30 +9,7 @@ const FormModal = ({ isOpen, onClose, selectedMovie }) => {
     pincode: "",
   });
   const handleChange = (e) => {
-    // Retrieve existing data from local storage
-    const existingData = JSON.parse(localStorage.getItem("userData")) || [];
-
-    let updatedData;
-
-    if (Array.isArray(existingData)) {
-      // Update the specific data field in the existing array
-      updatedData = existingData.map((data) => {
-        if (data.userName === formData.userName) {
-          return {
-            ...data,
-            [e.target.name]: e.target.value,
-          };
-        }
-        return data;
-      });
-    } else {
-      // If existingData is not an array, create a new array with the current formData
-      updatedData = [{ ...formData, [e.target.name]: e.target.value }];
-    }
-
-    // Save the updated array back to local storage
-    localStorage.setItem("userData", JSON.stringify(updatedData));
-
+    // Update the component state immediately for real-time feedback
     setFormData((prevData) => ({
       ...prevData,
       [e.target.name]: e.target.value,
@@ -41,9 +18,38 @@ const FormModal = ({ isOpen, onClose, selectedMovie }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Display a message or perform any other actions
+
+    const existingData = JSON.parse(localStorage.getItem("userData")) || [];
+
+    const updatedData = existingData.map((data) => {
+      if (data.userName === formData.userName) {
+        return {
+          ...data,
+          ...formData, // Update all fields at once when submitting the form
+        };
+      }
+      return data;
+    });
+
+    // If the entry doesn't exist, add a new one
+    if (!existingData.some((data) => data.userName === formData.userName)) {
+      updatedData.push({ ...formData });
+    }
+
+    // Save the updated array back to local storage
+    localStorage.setItem("userData", JSON.stringify(updatedData));
+
+    // Optionally, you can clear the form data or perform any other actions
+    setFormData({
+      userName: "",
+      city: "",
+      email: "",
+      phoneNo: "",
+      pincode: "",
+    });
+
     alert("Ticket booked successfully!");
-    // Close the modal
+
     onClose();
   };
 

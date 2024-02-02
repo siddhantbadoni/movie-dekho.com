@@ -15,10 +15,10 @@ const MovieSummary = ({ selectedMovie }) => {
   };
 
   return (
-    <div className="container movie-summary-container">
+    <div className="container movie-summary-container" id="selectSummary">
       <h2>Movie Summary</h2>
-      <div className="row border p-5">
-        <div className="col-md-8">
+      <div className="row border summary-padding">
+        <div className="col-md-12">
           {selectedMovie ? (
             <div className="card movie-summary-card">
               <h2 className="movie-summary-title">{selectedMovie.show.name}</h2>

@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import Navbar from "./components/Navbar";
@@ -9,7 +9,6 @@ function App() {
   const [movies, setMovies] = useState([]);
   const [selectedMovie, setSelectedMovie] = useState(null);
 
-  // Fetch movies from API and update the state
   const fetchMovies = async () => {
     try {
       const response = await fetch("https://api.tvmaze.com/search/shows?q=all");
@@ -29,18 +28,26 @@ function App() {
     fetchMovies();
   }, []);
 
-  // Function to set the selected movie
+  const scrollToSummary = () => {
+    if (summaryRef.current) {
+      summaryRef.current.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   const handleMovieClick = (movie) => {
     setSelectedMovie(movie);
+    scrollToSummary();
   };
+  const summaryRef = useRef(null);
 
   return (
     <>
       <Navbar />
       <div className="movies-section">
-        <MovieList movies={movies} onMovieClick={handleMovieClick} />
-        {/* Pass selectedMovie as a prop to MovieSummary */}
-        <MovieSummary selectedMovie={selectedMovie} />
+        <MovieList onMovieClick={handleMovieClick} movies={movies} />
+        <div ref={summaryRef}>
+          <MovieSummary selectedMovie={selectedMovie} />
+        </div>
       </div>
     </>
   );

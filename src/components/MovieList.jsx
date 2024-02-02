@@ -1,20 +1,29 @@
+// MovieList.js
+
 import React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./MovieList.css";
 
 const MovieList = ({ movies, onMovieClick }) => {
+  // Check if movies is undefined, and provide an empty array as a default
+  const movieList = movies || [];
+  console.log(movies);
+  const handleMovieClick = (movie) => {
+    onMovieClick(movie);
+  };
+
   return (
     <div className="container movie-list-container">
       <h2>Movie List</h2>
       <div className="row movie-list">
-        {movies.map((movie) => (
+        {movieList.map((movie) => (
           <div
             key={movie.show && movie.show.id}
-            className="col-md-4 movie-card-container"
+            className="col-lg-4 col-md-6 col-xs-12 movie-card-container"
           >
             <div
               className="card movie-card"
-              onClick={() => onMovieClick(movie)}
+              onClick={() => handleMovieClick(movie)}
             >
               {movie.show && movie.show.image && movie.show.image.medium ? (
                 <img src={movie.show.image.medium} alt={movie.show.name} />

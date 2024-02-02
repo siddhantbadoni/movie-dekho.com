@@ -2,3 +2,37 @@
   display: flex;
   flex-direction: row;
 }
+
+@media screen and (max-width: 768px) {
+  .movies-section {
+    display: block;
+    margin: auto;
+  }
+  .movie-card-container {
+    display: flex;
+    justify-content: center;
+  }
+  .movie-list-container h2,
+  .movie-summary-container h2 {
+    text-align: center !important;
+  }
+
+  .movie-summary-container,
+  .movie-list-container {
+    width: 100% !important;
+  }
+
+  .movie-card img {
+    max-width: 100% !important;
+  }
+
+  .summary-padding {
+    padding: 1rem !important;
+  }
+}
+
+@media screen and (max-width: 475px) {
+  .summary-padding {
+    padding: 0rem !important;
+  }
+}
